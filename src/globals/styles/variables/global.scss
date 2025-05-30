@@ -1,0 +1,76 @@
+@use '../breakpoints';
+
+:root {
+
+  // colors
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-dark: #141414;
+  --color-dark-secondary: #434343;
+  --color-light: #D0D0D0;
+  --color-overlay: rgba(0, 0, 0, .6);
+
+  --bg-primary: #F4F4F6;
+  --bg-secondary: #141414;
+
+  // gradients
+
+  --gradient-green: linear-gradient(114deg, #D4F76C -24%, #389BD8 336%);
+  --gradient-gray: linear-gradient(260deg, #1E1E1E 0, #282828 100%);
+
+  // shadows
+
+  --shadow-primary: 0 4px 12px 0 rgba(33, 33, 33, .2);
+
+  // border radius
+
+  --radius-s: 12px;
+  --radius-m: 24px;
+  --radius-l: 32px;
+
+  // transitions
+
+  --transition-primary: .2s ease;
+
+  // fonts
+
+  --font-size-xs: 10px;
+  --font-line-xs: 16px;
+
+  --font-size-s: 12px;
+  --font-line-s: 18px;
+
+  --font-size-m: 14px;
+  --font-line-m: 20px;
+
+  --font-size-ml: 16px;
+  --font-line-ml: 22px;
+
+  --font-size-l: 24px;
+  --font-line-l: 30px;
+
+  --font-size-xl: 28px;
+  --font-line-xl: 34px;
+
+  --font-size-xxl: 40px;
+  --font-line-xxl: 50px;
+
+  // container
+
+  --container-width: 1140px;
+  --container-gap: 20px;
+
+  // header
+
+  --header-height: 70px;
+
+  // mobile
+
+  @media (width < breakpoints.$md) {
+
+    // header
+
+    --header-height: 50px;
+  }
+}
