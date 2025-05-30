@@ -1,0 +1,1 @@
+export { getParsedTokensFromCookie } from './checkTokens';

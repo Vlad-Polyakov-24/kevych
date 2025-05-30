@@ -17,7 +17,7 @@ const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
 		as,
 		className,
 		children,
-		theme = ButtonTheme.BLACK,
+		theme = ButtonTheme.WHITE,
 		size = ButtonSize.M,
 		circle,
 		uppercase = false,

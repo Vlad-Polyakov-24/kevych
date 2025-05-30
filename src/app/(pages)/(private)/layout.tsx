@@ -1,15 +1,26 @@
+import { redirect } from 'next/navigation';
 import type { ReactNode } from 'react';
-// import { Footer } from '@widgets/Footer';
+import { getParsedTokensFromCookie } from '@shared/lib/checkTokens';
+import { Header } from '@widgets/Header';
+import { Routes } from '@shared/const/routes';
 
-interface IPagesLayout {
+interface PrivateLayoutProps {
 	children: ReactNode;
 }
 
-const PagesLayout = ({ children }: IPagesLayout) => (
-	<>
-		{children}
-		{/*<Footer />*/}
-	</>
-);
+const PrivateLayout = async ({ children }: PrivateLayoutProps) => {
+	const tokens = await getParsedTokensFromCookie();
 
-export default PagesLayout;
+	if (!tokens?.accessToken) {
+		redirect(Routes.LOGIN);
+	}
+
+	return (
+		<>
+			<Header />
+			{children}
+		</>
+	);
+};
+
+export default PrivateLayout;

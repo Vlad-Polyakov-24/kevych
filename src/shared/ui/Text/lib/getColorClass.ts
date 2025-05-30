@@ -1,7 +1,7 @@
 import { TextColor, TextElement } from '../model/types/Text.types';
 
-const DEFAULT_TITLE_COLOR = TextColor.BLACK;
-const DEFAULT_TEXT_COLOR = TextColor.BLACK;
+const DEFAULT_TITLE_COLOR = TextColor.LIGHT;
+const DEFAULT_TEXT_COLOR = TextColor.LIGHT;
 
 export type TextColorProps = TextColor | { title?: TextColor; text?: TextColor };
 

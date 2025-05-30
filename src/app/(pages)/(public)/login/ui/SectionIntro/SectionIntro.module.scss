@@ -1,3 +1,19 @@
 .intro {
+	flex-grow: 1;
+	padding-top: 24px;
+	padding-bottom: 24px;
 
+	&__container {
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
+	&__inner {
+		width: 100%;
+		max-width: 500px;
+		padding: 24px;
+		background-color: var(--bg-secondary);
+		border-radius: var(--radius-m);
+	}
 }
