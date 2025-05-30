@@ -52,7 +52,7 @@ const Text = (props: TextProps) => {
 	if (!title && !text) return null;
 
 	return (
-		<FlexV gap={gap} className={className} style={style}>
+		<FlexV align={'stretch'} justify={'stretch'} gap={gap} className={className} style={style}>
 			{title && <TitleTag className={classNames('', {}, titleAdditional)}>{title}</TitleTag>}
 			{text && <p className={classNames('', {}, textAdditional)}>{text}</p>}
 		</FlexV>

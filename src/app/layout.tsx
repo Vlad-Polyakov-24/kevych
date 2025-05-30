@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { ErrorBoundary } from '@globals/providers/ErrorBoundary';
+import { ReactQueryProvider } from '@globals/providers/ReactQueryProvider';
 import { FlexV } from '@shared/ui/Stack';
 import '@globals/styles/index.scss';
 
@@ -21,24 +22,23 @@ export const metadata: Metadata = {
 	// },
 };
 
-interface IRootLayout {
+interface RootLayoutProps {
 	children: ReactNode;
 }
 
-const RootLayout = ({ children }: IRootLayout) => {
-
-	return (
-		<html lang={'en'}>
-		<body className={`${roboto.variable}`}>
-		<ErrorBoundary>
+const RootLayout = ({ children }: RootLayoutProps) => (
+	<html lang={'en'}>
+	<body className={`${roboto.variable}`}>
+	<ErrorBoundary>
+		<ReactQueryProvider>
 			<FlexV as={'main'} align={'stretch'} justify={'stretch'} grow>
 				{children}
 			</FlexV>
-		</ErrorBoundary>
-		<ToastContainer theme={'light'} />
-		</body>
-		</html>
-	);
-};
+		</ReactQueryProvider>
+	</ErrorBoundary>
+	<ToastContainer theme={'light'} />
+	</body>
+	</html>
+);
 
 export default RootLayout;

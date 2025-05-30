@@ -3,6 +3,8 @@ export type TextElement = 'title' | 'text';
 export enum TextColor {
 	WHITE = 'color-white',
 	BLACK = 'color-black',
+	DARK = 'color-dark',
+	LIGHT = 'color-light',
 }
 
 export enum TextSize {
