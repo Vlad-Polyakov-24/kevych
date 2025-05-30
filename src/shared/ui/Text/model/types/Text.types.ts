@@ -3,10 +3,6 @@ export type TextElement = 'title' | 'text';
 export enum TextColor {
 	WHITE = 'color-white',
 	BLACK = 'color-black',
-	DARK = 'color-dark',
-	DARK_SECONDARY = 'color-dark-secondary',
-	LIGHT = 'color-light',
-	GREEN_GRADIENT= 'color-green-gradient',
 }
 
 export enum TextSize {

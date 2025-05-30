@@ -1,25 +1,19 @@
-import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { FlexV } from '@shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '@shared/ui/Text';
 import { Button } from '@shared/ui/Button';
-import { Link } from '@shared/config/i18n/navigation';
-import { Routes } from '@shared/config/navigation/routes';
+import { Routes } from '@shared/const/routes';
 
-const NotFoundPage = () => {
-	const tErrors = useTranslations('errors');
-	const tNavigation = useTranslations('navigation');
-
-	return (
-		<FlexV as={'section'} align={'center'} justify={'center'} gap={'20'} grow>
-			<Text
-				titleTag={'h1'}
-				align={TextAlign.CENTER}
-				size={TextSize.XXL}
-				title={tErrors('page not found')}
-			/>
-			<Button as={Link} href={Routes.HOME}>{tNavigation('home')}</Button>
-		</FlexV>
-	);
-};
+const NotFoundPage = () => (
+	<FlexV as={'section'} align={'center'} justify={'center'} gap={'20'} grow>
+		<Text
+			titleTag={'h1'}
+			align={TextAlign.CENTER}
+			size={TextSize.XXL}
+			title={'Page not found'}
+		/>
+		<Button as={Link} href={Routes.HOME}>Home</Button>
+	</FlexV>
+);
 
 export default NotFoundPage;

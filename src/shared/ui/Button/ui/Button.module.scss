@@ -9,15 +9,6 @@
 	transition: var(--transition-primary);
 	color: var(--color-dark);
 
-	// font family
-
-	&.montserrat {
-		font-family: var(--font-montserrat), sans-serif;
-	}
-	&.unbounded {
-		font-family: var(--font-unbounded), sans-serif;
-	}
-
 	// theme
 
 	&.theme-clear {
@@ -31,17 +22,6 @@
 		background-color: var(--color-dark);
 		border-color: var(--color-dark);
 		color: var(--color-white);
-
-		@media (hover: hover) {
-			&:hover {
-				opacity: .7;
-			}
-		}
-	}
-	&.theme-green-gradient {
-		background: var(--gradient-green);
-		border: none;
-		color: var(--color-dark);
 
 		@media (hover: hover) {
 			&:hover {

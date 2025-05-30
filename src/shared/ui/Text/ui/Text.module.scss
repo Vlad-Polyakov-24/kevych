@@ -1,12 +1,3 @@
-// font family
-
-.montserrat {
-	font-family: var(--font-montserrat), sans-serif;
-}
-.unbounded {
-	font-family: var(--font-unbounded), sans-serif;
-}
-
 // sizes
 
 .size-xs {
@@ -45,22 +36,6 @@
 }
 .color-black {
 	color: var(--color-black);
-}
-.color-dark {
-	color: var(--color-dark);
-}
-.color-dark-secondary {
-	color: var(--color-dark-secondary);
-}
-.color-light {
-	color: var(--color-light);
-}
-.color-green-gradient {
-	background: var(--gradient-green);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	color: transparent;
 }
 
 // align

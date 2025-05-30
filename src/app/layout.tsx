@@ -1,28 +1,19 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { Unbounded, Montserrat } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { ToastContainer } from 'react-toastify';
 import { ErrorBoundary } from '@globals/providers/ErrorBoundary';
 import { FlexV } from '@shared/ui/Stack';
-import { routing } from '@shared/config/i18n/routing';
 import '@globals/styles/index.scss';
 
-const unbounded = Unbounded({
-	variable: '--font-unbounded',
-	subsets: ['latin'],
-	weight: ['400', '500', '600', '700'],
-});
-
-const montserrat = Montserrat({
-	variable: '--font-montserrat',
+const roboto = Roboto({
+	variable: '--font-roboto',
 	subsets: ['latin'],
 	weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
-	title: 'Optibots',
+	title: 'Kevych Solutions',
 	description: 'Developed by Vlad Poliakov',
 	// icons: {
 	// 	icon: '/favicon.ico',
@@ -32,27 +23,19 @@ export const metadata: Metadata = {
 
 interface IRootLayout {
 	children: ReactNode;
-	params: Promise<{ locale: string }>;
 }
 
-const RootLayout = async ({ children, params }: IRootLayout) => {
-	const { locale } = await params;
-
-	if (!hasLocale(routing.locales, locale)) {
-		notFound();
-	}
+const RootLayout = ({ children }: IRootLayout) => {
 
 	return (
-		<html lang={locale}>
-		<body className={`${montserrat.variable} ${unbounded.variable}`}>
-		<NextIntlClientProvider>
-			<ErrorBoundary>
-				<FlexV as={'main'} align={'stretch'} justify={'stretch'} grow>
-					{children}
-				</FlexV>
-			</ErrorBoundary>
-			<ToastContainer theme={'light'} />
-		</NextIntlClientProvider>
+		<html lang={'en'}>
+		<body className={`${roboto.variable}`}>
+		<ErrorBoundary>
+			<FlexV as={'main'} align={'stretch'} justify={'stretch'} grow>
+				{children}
+			</FlexV>
+		</ErrorBoundary>
+		<ToastContainer theme={'light'} />
 		</body>
 		</html>
 	);
