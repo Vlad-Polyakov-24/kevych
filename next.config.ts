@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
 				hostname: 'dummyjson.com',
 				pathname: '/**',
 			},
+			{
+				protocol: 'https',
+				hostname: 'cdn.dummyjson.com',
+				pathname: '/**',
+			}
 		],
 	},
 	// webpack(config) {
