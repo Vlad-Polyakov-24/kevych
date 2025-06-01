@@ -1,4 +1,4 @@
-import { memo, type CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { classNames } from '@shared/lib/classNames';
 import styles from './ErrorMessage.module.scss';
 
@@ -8,8 +8,8 @@ type ErrorMessageProps = {
 	message: string;
 };
 
-const ErrorMessage = memo(({ className, style, message }: ErrorMessageProps) => (
+const ErrorMessage = ({ className, style, message }: ErrorMessageProps) => (
 	<span className={classNames(styles.message, {}, [className])} style={style}>{message}</span>
-));
+);
 
 export default ErrorMessage;
