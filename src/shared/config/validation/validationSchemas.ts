@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { isValidImageUrl } from '@shared/lib/checkValidImageUrl';
 
 export const loginSchema = yup.object({
 	username: yup.string().required('Username is required'),
@@ -27,5 +28,8 @@ export const editSchema = yup.object({
 		.min(0)
 		.required('Field is required'),
 	brand: yup.string().required('Field is required'),
-	thumbnail: yup.string().required('Field is required'),
+	thumbnail: yup
+		.string()
+		.required('Field is required')
+		.test('is-valid-url', 'Image URL must be from an allowed host', isValidImageUrl),
 });

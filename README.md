@@ -2,6 +2,8 @@
 
 **Kevych** is a product listing and management application built with **Next.js 15**, **React 19**, and structured according to the **Feature-Sliced Design (FSD)** methodology for scalability and maintainability.
 
+### 🔗 [Live Demo](https://kevych.vercel.app/)
+
 ## 🚀 Tech Stack
 
 * **Framework**: Next.js 15 (App Router)
@@ -39,6 +41,44 @@ npm run build    # Create production build
 npm run start    # Start production server
 npm run lint     # Run ESLint
 ```
+
+### 🖼️ Remote Images
+
+The following domains are allowed for remote image loading (configured in `next.config.js`):
+
+```js
+images: {
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'dummyjson.com',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'cdn.dummyjson.com',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'i.imgur.com',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'imgur.com',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'images.imgur.com',
+      pathname: '/**',
+    },
+  ]
+}
+```
+
+---
 
 ## 📁 Directory Structure (FSD)
 
