@@ -7,6 +7,11 @@ export const navLinks = [
 		type: 'page',
 	},
 	{
+		label: 'Create Product',
+		route: Routes.PRODUCT_CREATE,
+		type: 'page',
+	},
+	{
 		label: 'CV',
 		route: '/files/cv.pdf',
 		type: 'cv',

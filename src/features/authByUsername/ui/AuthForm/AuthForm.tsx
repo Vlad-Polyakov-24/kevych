@@ -21,6 +21,7 @@ const AuthForm = ({ className }: AuthFormProps) => {
 		resolver: yupResolver(loginSchema),
 	});
 	const { mutateAsync: login, isPending } = useLogin();
+
 	const onSubmit = async (data: ICredentials) => {
 		await login(data);
 	};

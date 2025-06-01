@@ -1,0 +1,1 @@
+export { generateLocalId } from './generateLocalId';
