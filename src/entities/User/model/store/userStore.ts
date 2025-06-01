@@ -3,13 +3,13 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import { localStorageVars } from '@shared/const/localStorageVars';
 import type { IUser } from '../types/User.types';
 
-interface IUserState {
+interface IUserStore {
 	currentUser: Omit<IUser, 'refreshToken' | 'accessToken'> | null,
-	set: (newState: Partial<IUserState>) => void;
+	set: (newState: Partial<IUserStore>) => void;
 	resetState: () => void;
 }
 
-const userStore = create<IUserState>()(
+const userStore = create<IUserStore>()(
 	persist(
 		(set) => ({
 			currentUser: null,

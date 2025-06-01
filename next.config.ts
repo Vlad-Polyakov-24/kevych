@@ -16,6 +16,20 @@ const nextConfig: NextConfig = {
 		});
 		return config;
 	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'dummyjson.com',
+				pathname: '/**',
+			},
+			{
+				protocol: 'https',
+				hostname: 'cdn.dummyjson.com',
+				pathname: '/**',
+			}
+		],
+	},
 	// webpack(config) {
 	// 	const fileLoaderRule = config.module.rules.find((rule) =>
 	// 		rule.test?.test?.('.svg'),

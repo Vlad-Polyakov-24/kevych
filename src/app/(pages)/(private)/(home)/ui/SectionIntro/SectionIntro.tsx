@@ -1,5 +1,6 @@
 import { classNames } from '@shared/lib/classNames';
 import { Container } from '@shared/ui/Container';
+import { Products } from '@widgets/Products';
 import styles from './SectionIntro.module.scss';
 
 type SectionIntroProps = {
@@ -10,7 +11,7 @@ const SectionIntro = ({ className }: SectionIntroProps) => {
 	return (
 		<section className={classNames(styles.intro, {}, [className])}>
 			<Container>
-				HOME INTRO
+				<Products />
 			</Container>
 		</section>
 	);

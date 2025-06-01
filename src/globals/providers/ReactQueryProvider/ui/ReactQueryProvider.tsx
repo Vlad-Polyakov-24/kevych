@@ -14,7 +14,7 @@ const ReactQueryProvider = ({ children, isDevtools = true }: ReactQueryProviderP
 	<QueryClientProvider client={queryClient}>
 		{children}
 		{isDevtools && (
-			<ReactQueryDevtools initialIsOpen={false} buttonPosition={'bottom-left'} />
+			<ReactQueryDevtools initialIsOpen={false} buttonPosition={'bottom-right'} />
 		)}
 	</QueryClientProvider>
 );

@@ -1,3 +1,11 @@
 .header {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--bg-secondary);
+	border-radius: 0 0 var(--radius-m) var(--radius-m);
 
+	&__container {
+		align-items: center;
+		gap: 16px;
+	}
 }

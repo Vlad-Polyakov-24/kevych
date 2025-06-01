@@ -1,9 +1,9 @@
-'use client';
-
 import { classNames } from '@shared/lib/classNames';
-import { useLogout } from '@entities/User';
 import { Container } from '@shared/ui/Container';
-import { Button } from '@shared/ui/Button';
+import { UserAvatar } from '@entities/User';
+import { Nav } from '@features/Nav';
+import { Hamburger } from '@features/Hamburger';
+import { LogoutButton } from '@features/LogoutButton';
 import styles from './Header.module.scss';
 
 type HeaderProps = {
@@ -11,14 +11,14 @@ type HeaderProps = {
 };
 
 const Header = ({ className }: HeaderProps) => {
-	const { logout } = useLogout();
 
 	return (
 		<header className={classNames(styles.header, {}, [className])}>
-			<Container>
-				<Button onClick={logout}>
-					Logout
-				</Button>
+			<Container display={'flex'} orientation={'horizontal'} className={styles.header__container}>
+				<Nav className={'mr-a'} />
+				<Hamburger className={'mr-a'} />
+				<LogoutButton />
+				<UserAvatar />
 			</Container>
 		</header>
 	);

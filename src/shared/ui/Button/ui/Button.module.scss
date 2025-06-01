@@ -3,7 +3,6 @@
 	align-items: center;
 	justify-content: center;
 	gap: 5px;
-	padding: 10px 32px;
 	border: 1px solid;
 	border-radius: 100px;
 	transition: var(--transition-primary);
@@ -55,14 +54,17 @@
 	// size
 
 	&.size-s {
+		padding: 5px 16px;
 		font-size: var(--font-size-s);
 		line-height: var(--font-line-s);
 	}
 	&.size-m {
+		padding: 10px 32px;
 		font-size: var(--font-size-m);
 		line-height: var(--font-line-m);
 	}
 	&.size-l {
+		padding: 15px 38px;
 		font-size: var(--font-size-l);
 		line-height: var(--font-line-l);
 	}

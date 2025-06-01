@@ -14,6 +14,7 @@ export type FlexProps<T extends ElementType = 'div'> = {
 	gap?: FlexGap;
 	fluid?: boolean;
 	grow?: boolean;
+	wrap?: boolean;
 } & Omit<ComponentPropsWithoutRef<T>, 'as'>;
 
 const Flex = <T extends ElementType = 'div'>(props: FlexProps<T>) => {
@@ -24,6 +25,7 @@ const Flex = <T extends ElementType = 'div'>(props: FlexProps<T>) => {
 		gap,
 		fluid,
 		grow,
+		wrap,
 		justify = 'start',
 		align = 'start',
 		direction = 'row',
@@ -33,6 +35,7 @@ const Flex = <T extends ElementType = 'div'>(props: FlexProps<T>) => {
 	const mods: Mods = {
 		[styles.fluid]: fluid,
 		[styles.grow]: grow,
+		[styles.wrap]: wrap,
 	};
 	const additional: Additional = [
 		justifyClasses[justify],
