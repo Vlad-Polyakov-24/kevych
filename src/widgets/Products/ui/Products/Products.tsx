@@ -3,9 +3,10 @@
 import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { useGetProducts, type IGetProductsParams, type SortOrder } from '@entities/Product';
+import { type IGetProductsParams, type SortOrder, useGetProducts } from '@entities/Product';
 import { useInfiniteScroll } from '@shared/hooks/useInfiniteScroll';
 import { FlexV } from '@shared/ui/Stack';
+import { Text, TextAlign, TextColor, TextSize } from '@shared/ui/Text';
 import { Loader } from '@shared/ui/Loader';
 import { ProductsFilters } from '../ProductsFilters/ProductsFilters';
 import { ProductsList } from '../ProductsList/ProductsList';
@@ -50,7 +51,18 @@ const Products = ({ className }: ProductsProps) => {
 			>
 				<ProductsFilters />
 				{products && (
-					<ProductsList products={products} />
+					<>
+						{products.length > 0 ? (
+							<ProductsList products={products} />
+						) : params.q && (
+							<Text
+								text={'Such products is not found'}
+								color={TextColor.LIGHT}
+								align={TextAlign.CENTER}
+								size={TextSize.L}
+							/>
+						)}
+					</>
 				)}
 				{(isLoading || isFetchingNextPage) && (
 					<Loader color={'light'} className={'m-centred'} />

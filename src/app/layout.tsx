@@ -16,10 +16,10 @@ const roboto = Roboto({
 export const metadata: Metadata = {
 	title: 'Kevych Solutions',
 	description: 'Developed by Vlad Poliakov',
-	// icons: {
-	// 	icon: '/favicon.ico',
-	// 	apple: '/apple-touch-icon.png',
-	// },
+	icons: {
+		icon: '/favicon.ico',
+		apple: '/apple-touch-icon.png',
+	},
 };
 
 interface RootLayoutProps {
