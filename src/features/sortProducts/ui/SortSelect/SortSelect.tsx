@@ -1,8 +1,9 @@
 'use client';
 
 import { useCallback, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import {  useSearchParams } from 'next/navigation';
 import { classNames } from '@shared/lib/classNames';
+import { useQueryParam } from '@shared/hooks/useQueryParam';
 import { Select } from '@shared/ui/Select';
 import { sortOptions } from '../../model/data/sortSelect.data';
 import styles from './SortSelect.module.scss';
@@ -13,29 +14,17 @@ type SortSelectProps = {
 
 const SortSelect = ({ className }: SortSelectProps) => {
 	const searchParams = useSearchParams();
-	const router = useRouter();
-	const currentCategory = searchParams.get('order') || 'no_sort';
-	const isCategory = !!searchParams.get('category');
+	const [sortOrder, setSortOrder] = useQueryParam('order');
+	const isCategory = Boolean(searchParams.get('category'));
 
 	useEffect(() => {
-		if (isCategory && searchParams.get('order')) {
-			const params = new URLSearchParams(searchParams);
-			params.delete('order');
-			router.replace(`?${params.toString()}`);
-		}
-	}, [isCategory, searchParams, router]);
+		if (isCategory && sortOrder) setSortOrder(null);
+	}, [isCategory, sortOrder, setSortOrder]);
 
 	const handleChange = useCallback((value: string) => {
-		const params = new URLSearchParams(searchParams);
-
-		if (value === 'no_sort') {
-			params.delete('order');
-		} else {
-			params.set('order', value);
-		}
-
-		router.replace(`?${params.toString()}`);
-	}, [router, searchParams]);
+		if (value === 'no_sort') setSortOrder(null);
+		else setSortOrder(value);
+	}, [setSortOrder]);
 
 	return (
 		<Select
@@ -43,7 +32,7 @@ const SortSelect = ({ className }: SortSelectProps) => {
 			options={sortOptions}
 			className={classNames(styles.select, {}, [className])}
 			onChange={handleChange}
-			value={currentCategory}
+			value={sortOrder || 'no_sort'}
 			disabled={isCategory}
 		/>
 	);

@@ -50,10 +50,13 @@
 	&__select {
 		display: block;
 		width: 100%;
+		min-height: var(--input-min-height);
 		padding: 5px 10px;
 		border-radius: 4px;
 		border: 1px solid var(--color-dark);
 		background-color: transparent;
+		font-size: var(--font-size-m);
+		line-height: var(--font-line-m);
 		color: var(--color-dark);
 
 		&:focus {

@@ -63,16 +63,7 @@
   --container-width: 1140px;
   --container-gap: 20px;
 
-  // header
+  // inputs
 
-  --header-height: 70px;
-
-  // mobile
-
-  @media (width < breakpoints.$md) {
-
-    // header
-
-    --header-height: 50px;
-  }
+  --input-min-height: 32px;
 }

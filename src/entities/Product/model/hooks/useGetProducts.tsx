@@ -20,7 +20,16 @@ const useGetProducts = (params?: Partial<IGetProductsParams>) => {
 		[params?.q, params?.category, params?.order]
 	);
 
-	const { data, isLoading, isSuccess, isError, error } = useInfiniteQuery({
+	const {
+		data,
+		isLoading,
+		isSuccess,
+		isError,
+		error,
+		fetchNextPage,
+		hasNextPage,
+		isFetchingNextPage,
+	} = useInfiniteQuery({
 		queryKey,
 		initialPageParam: { skip: 0, limit: DEFAULT_LIMIT },
 		queryFn: ({ pageParam }) =>
@@ -42,7 +51,15 @@ const useGetProducts = (params?: Partial<IGetProductsParams>) => {
 		}
 	}, [isError, error]);
 
-	return { data, isLoading, isSuccess, isError };
+	return {
+		data,
+		isLoading,
+		isSuccess,
+		isError,
+		fetchNextPage,
+		hasNextPage,
+		isFetchingNextPage,
+	};
 };
 
 export { useGetProducts };

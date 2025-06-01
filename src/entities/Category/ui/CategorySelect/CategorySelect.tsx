@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback, useMemo } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
 import { classNames } from '@shared/lib/classNames';
+import { useQueryParam } from '@shared/hooks/useQueryParam';
 import { useGetCategories } from '../../model/hooks/useGetCategories';
 import { Select } from '@shared/ui/Select';
 import { generateCategoryOptions } from '../../model/data/categorySelect.data';
@@ -13,10 +13,8 @@ type CategorySelectProps = {
 };
 
 const CategorySelect = ({ className }: CategorySelectProps) => {
-	const searchParams = useSearchParams();
-	const router = useRouter();
 	const { data: categories } = useGetCategories();
-	const currentCategory = searchParams.get('category') || 'All';
+	const [category, setCategory] = useQueryParam('category');
 
 	const options = useMemo(
 		() => generateCategoryOptions(categories || []),
@@ -24,16 +22,8 @@ const CategorySelect = ({ className }: CategorySelectProps) => {
 	);
 
 	const handleChange = useCallback((value: string) => {
-		const params = new URLSearchParams(searchParams);
-
-		if (value === 'All') {
-			params.delete('category');
-		} else {
-			params.set('category', value);
-		}
-
-		router.replace(`?${params.toString()}`);
-	}, [router, searchParams]);
+		setCategory(value === 'All' ? null : value);
+	}, [setCategory]);
 
 	return (
 		<Select
@@ -41,7 +31,7 @@ const CategorySelect = ({ className }: CategorySelectProps) => {
 			className={classNames(styles.select, {}, [className])}
 			options={options}
 			onChange={handleChange}
-			value={currentCategory}
+			value={category || 'All'}
 		/>
 	);
 };
