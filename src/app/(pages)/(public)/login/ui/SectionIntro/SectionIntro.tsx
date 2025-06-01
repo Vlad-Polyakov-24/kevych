@@ -10,7 +10,7 @@ type SectionIntroProps = {
 };
 
 const SectionIntro = ({ className }: SectionIntroProps) => (
-	<section className={classNames(styles.intro, {}, [className])}>
+	<section className={classNames(styles.intro, {}, [className, 'section-padding'])}>
 		<Container display={'flex'} className={styles.intro__container}>
 			<FlexV
 				align={'stretch'}

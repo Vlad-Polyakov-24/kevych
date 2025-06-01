@@ -43,6 +43,7 @@ const useGetProducts = (params?: Partial<IGetProductsParams>) => {
 			total: data.pages[0]?.total ?? 0,
 			pageParams: data.pageParams,
 		}),
+		refetchOnMount: false,
 	});
 
 	useEffect(() => {

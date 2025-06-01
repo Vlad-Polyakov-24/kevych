@@ -4,6 +4,12 @@
 	gap: 3px;
 	width: 100%;
 
+	&.error {
+		.field__input {
+			border-color: var(--color-error);
+		}
+	}
+
 	&__label {
 		display: block;
 		font-size: var(--font-size-m);

@@ -10,6 +10,7 @@ const useGetCategories = () => {
 	const { data, isLoading, isSuccess, isError, error } = useQuery({
 		queryKey: categoryKeys.allCategories,
 		queryFn: categoryApi.getCategories,
+		refetchOnMount: false,
 	});
 
 	useEffect(() => {

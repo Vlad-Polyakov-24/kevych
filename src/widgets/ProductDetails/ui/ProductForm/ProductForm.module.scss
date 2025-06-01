@@ -1,0 +1,13 @@
+@use '@globals/styles/breakpoints';
+
+.form {
+	&__row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 8px;
+
+		@media (width < breakpoints.$md) {
+			grid-template-columns: 1fr;
+		}
+	}
+}

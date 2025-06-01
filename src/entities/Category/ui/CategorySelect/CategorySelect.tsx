@@ -1,37 +1,44 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
-import { classNames } from '@shared/lib/classNames';
-import { useQueryParam } from '@shared/hooks/useQueryParam';
+import { type SelectHTMLAttributes, useMemo } from 'react';
 import { useGetCategories } from '../../model/hooks/useGetCategories';
 import { Select } from '@shared/ui/Select';
 import { generateCategoryOptions } from '../../model/data/categorySelect.data';
-import styles from './CategorySelect.module.scss';
 
-type CategorySelectProps = {
+interface CategorySelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange'> {
 	className?: string;
-};
+	label?: string;
+	onChange: (value: string) => void;
+	value: string;
+	includeAllOption?: boolean;
+	error?: string;
+}
 
-const CategorySelect = ({ className }: CategorySelectProps) => {
+const CategorySelect = (props: CategorySelectProps) => {
+	const {
+		value,
+		onChange,
+		label = 'Category:',
+		className,
+		includeAllOption = false,
+		error,
+	} = props;
 	const { data: categories } = useGetCategories();
-	const [category, setCategory] = useQueryParam('category');
 
-	const options = useMemo(
-		() => generateCategoryOptions(categories || []),
-		[categories]
-	);
+	const options = useMemo(() => {
+		const opts = generateCategoryOptions(categories || [], includeAllOption);
 
-	const handleChange = useCallback((value: string) => {
-		setCategory(value === 'All' ? null : value);
-	}, [setCategory]);
+		return includeAllOption ? opts : opts.filter(opt => opt.value !== 'All');
+	}, [categories, includeAllOption]);
 
 	return (
 		<Select
-			label={'Category:'}
-			className={classNames(styles.select, {}, [className])}
+			label={label}
+			className={className}
 			options={options}
-			onChange={handleChange}
-			value={category || 'All'}
+			value={value}
+			onChange={onChange}
+			error={error}
 		/>
 	);
 };

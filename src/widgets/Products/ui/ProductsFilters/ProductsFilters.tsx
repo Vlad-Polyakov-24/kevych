@@ -1,8 +1,7 @@
 import { classNames } from '@shared/lib/classNames';
 import { FlexH } from '@shared/ui/Stack';
-import { CategorySelect } from '@entities/Category';
-import { SortSelect } from '@features/sortProducts';
-import { Search } from '@features/Search';
+import { Search, SortSelect } from '@features/productsFilters';
+import { FilterCategorySelect } from '../FilterCategorySelect/FilterCategorySelect';
 import styles from './ProductsFilters.module.scss';
 
 type ProductsFiltersProps = {
@@ -16,7 +15,7 @@ const ProductsFilters = ({ className }: ProductsFiltersProps) => (
 		className={classNames(styles.filters, {}, [className])}
 		wrap
 	>
-		<CategorySelect />
+		<FilterCategorySelect />
 		<SortSelect />
 		<Search />
 	</FlexH>

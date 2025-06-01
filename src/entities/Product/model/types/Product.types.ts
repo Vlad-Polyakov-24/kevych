@@ -28,3 +28,8 @@ export interface IProductsResponse {
 	skip: number;
 	limit: number;
 }
+
+export interface IProductsData {
+	pages: IProductsResponse[];
+	pageParams: unknown[];
+}

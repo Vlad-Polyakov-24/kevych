@@ -31,7 +31,7 @@ const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
 		[styles.uppercase]: uppercase,
 	};
 
-	const additional: Additional = [className, styles[size], styles[theme]];
+	const additional: Additional = [styles[size], styles[theme], className];
 
 	const componentProps = {
 		...(Component === 'button' ? { type } : {}),

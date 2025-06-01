@@ -25,7 +25,14 @@ const Select = <T extends string>(props: SelectProps<T>) => {
 	};
 
 	const optionsList = useMemo(() => options.map(({ value, label }) => (
-		<option key={value} className={styles.field__option} value={value}>{label}</option>
+		<option
+			key={value}
+			className={styles.field__option}
+			value={value}
+			disabled={value === ''}
+		>
+			{label}
+		</option>
 	)), [options]);
 
 	return (

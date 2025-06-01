@@ -1,7 +1,12 @@
+'use client';
+
+import { useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { classNames } from '@shared/lib/classNames';
 import { FlexH, FlexV } from '@shared/ui/Stack';
 import { Text, TextAlign, TextColor, TextSize } from '@shared/ui/Text';
+import { Routes } from '@shared/const/routes';
 import type { IProduct } from '@entities/Product';
 import styles from './ProductItem.module.scss';
 
@@ -12,7 +17,12 @@ type ProductItemProps = {
 };
 
 const ProductItem = (props: ProductItemProps) => {
-	const { className, priority, product: { thumbnail, title, description, category, brand, price } } = props;
+	const { className, priority, product: { id, thumbnail, title, description, category, brand, price } } = props;
+	const router = useRouter();
+
+	const handleRedirect = useCallback((id: string | number) => {
+		router.push(`${Routes.PRODUCT}/${id}`);
+	}, [router]);
 
 	return (
 		<FlexV
@@ -21,6 +31,7 @@ const ProductItem = (props: ProductItemProps) => {
 			justify={'stretch'}
 			gap={'16'}
 			className={classNames(styles.item, {}, [className])}
+			onClick={() => handleRedirect(id)}
 		>
 			<Image
 				src={thumbnail}

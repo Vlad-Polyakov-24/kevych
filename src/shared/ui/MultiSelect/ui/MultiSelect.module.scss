@@ -1,0 +1,12 @@
+.field {
+	display: block;
+	width: 100%;
+
+	&__label {
+		display: block;
+
+		+ .field__select {
+			margin-top: 3px;
+		}
+	}
+}

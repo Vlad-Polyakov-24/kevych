@@ -5,4 +5,5 @@ export const productsKeys = {
 	category: (category: string) => (['products', 'category', category]),
 	search: (q: string) => ['products', 'search', q],
 	order: (order: SortOrder) => ['products', 'order', order],
+	singleProduct: (id: string | number) => ['products', 'singleProduct', +id],
 } as const;

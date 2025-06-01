@@ -1,0 +1,14 @@
+.details {
+
+	&__img {
+		max-width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		object-position: center;
+		object-fit: cover;
+	}
+
+	&__inner {
+		flex: 1 1 50%;
+	}
+}
