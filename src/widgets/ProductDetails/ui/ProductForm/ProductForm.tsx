@@ -13,6 +13,7 @@ import { Textarea } from '@shared/ui/Textarea';
 import { CategorySelect } from '@entities/Category';
 import { Button, ButtonTheme } from '@shared/ui/Button';
 import { Loader, LoaderTheme } from '@shared/ui/Loader';
+import { BackButton } from '@features/BackButton';
 import { editSchema } from '@shared/config/validation/validationSchemas';
 import { fields } from '../../model/data/productForm.data';
 import { useCreateProduct, useEditLocalProduct, useEditProduct, type IProduct } from '@entities/Product';
@@ -29,6 +30,7 @@ type ProductFormProps = {
 	className?: string;
 	currentProduct?: IProduct;
 	handleCancel?: () => void;
+	handleBack?: () => void;
 };
 
 const ProductForm = (props: ProductFormProps) => {
@@ -82,6 +84,7 @@ const ProductForm = (props: ProductFormProps) => {
 
 	return (
 		<>
+			<BackButton style={{ alignSelf: 'flex-start' }} />
 			<FlexV
 				as={'form'}
 				align={'stretch'}
