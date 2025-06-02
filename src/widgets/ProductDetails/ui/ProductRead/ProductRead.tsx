@@ -3,6 +3,7 @@ import { classNames } from '@shared/lib/classNames';
 import { FlexH, FlexV } from '@shared/ui/Stack';
 import { Text, TextColor, TextSize } from '@shared/ui/Text';
 import { Tag } from '@shared/ui/Tag';
+import { BackButton } from '@features/BackButton';
 import type { IProduct } from '@entities/Product';
 import styles from './ProductRead.module.scss';
 
@@ -38,6 +39,7 @@ const ProductRead = (props: ProductReadProps) => {
 				gap={'12'}
 				className={styles.details__inner}
 			>
+				<BackButton style={{ alignSelf: 'flex-start' }} />
 				<Text
 					title={title}
 					text={description}
