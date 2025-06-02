@@ -4,6 +4,31 @@
 
 ### 🔗 [Live Demo](https://kevych.vercel.app/)
 
+### 🔑 Credentials
+
+```js
+[
+  {
+    login: 'emilys',
+    password: 'emilyspass',
+  },
+  {
+    login: 'michaelw',
+    password: 'michaelwpass',
+  },
+  {
+    login: 'sophiab',
+    password: 'sophiabpass',
+  },
+  {
+    login: 'jamesd',
+    password: 'jamesdpass',
+  },
+]
+```
+
+More credentials you can find [here](https://dummyjson.com/users).
+
 ## 🚀 Tech Stack
 
 * **Framework**: Next.js 15 (App Router)
